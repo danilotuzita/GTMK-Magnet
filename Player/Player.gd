@@ -6,10 +6,11 @@ const STOP_FORCE = 1300
 const JUMP_SPEED = 200
 
 var velocity = Vector2()
+var other_player
 
 onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _physics_process(delta):
+func _physics_process(delta: float):
 	# Horizontal movement code. First, get the player's input.
 	var walk = WALK_FORCE * (Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
 	# Slow down the player if they're not trying to move.
@@ -30,3 +31,4 @@ func _physics_process(delta):
 	# Check for jumping. is_on_floor() must be called after movement code.
 	if is_on_floor() and Input.is_action_just_pressed("jump"):
 		velocity.y = -JUMP_SPEED
+		

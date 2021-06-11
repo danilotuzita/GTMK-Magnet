@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sprites/floor.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1024, 20 )
@@ -61,6 +62,13 @@ points = PoolVector2Array( 16, 16, 0.0940971, 16, 0.0940971, 0.228687, 16, 0.228
 2/z_index = 0
 
 [node name="World" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 255.42, 297.87 )
+
+[node name="Player2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 308.336, 294.09 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 512, 600 )
@@ -83,6 +91,3 @@ cell_size = Vector2( 16, 16 )
 show_collision = true
 format = 1
 tile_data = PoolIntArray( 1179669, 2, 0, 1179670, 2, 0, 1179671, 2, 0, 1179672, 2, 0, 1179673, 2, 0, 1376256, 2, 0, 1376257, 2, 0, 1376258, 2, 0, 1376259, 2, 0, 1376260, 2, 0, 1376261, 2, 0, 1376262, 2, 0, 1376263, 2, 0, 1376264, 2, 0, 1376265, 2, 0, 1376266, 2, 0, 1376267, 2, 0, 1376268, 2, 0, 1376269, 2, 0, 1376270, 2, 0, 1376271, 2, 0, 1376272, 2, 0, 1376273, 2, 0, 1376274, 2, 0, 1376275, 2, 0, 1376276, 2, 0, 1376277, 2, 0, 1376278, 2, 0, 1376279, 2, 0, 1376280, 2, 0, 1376281, 2, 0, 1376282, 2, 0, 1376283, 2, 0, 1376284, 2, 0, 1376285, 2, 0, 1376286, 2, 0, 1376287, 2, 0, 1376288, 2, 0, 1376289, 2, 0, 1376290, 2, 0, 1376291, 2, 0, 1376292, 2, 0, 1376293, 2, 0, 1376294, 2, 0, 1376295, 2, 0, 1376296, 2, 0, 1376297, 2, 0, 1376298, 2, 0, 1376299, 2, 0, 1376300, 2, 0, 1376301, 2, 0, 1376302, 2, 0, 1376303, 2, 0, 1376304, 2, 0, 1376305, 2, 0, 1376306, 2, 0, 1376307, 2, 0, 1376308, 2, 0, 1376309, 2, 0, 1376310, 2, 0, 1376311, 2, 0, 1376312, 2, 0, 1376313, 2, 0, 1376314, 2, 0, 1376315, 2, 0, 1376316, 2, 0, 1376317, 2, 0, 1376318, 2, 0, 1376319, 2, 0, 1376320, 2, 0, 1638427, 2, 0, 1638428, 2, 0, 1638429, 2, 0, 1638430, 2, 0, 1638431, 2, 0, 1638432, 2, 0 )
-
-[node name="Player" parent="TileMap" instance=ExtResource( 2 )]
-position = Vector2( 255.42, 297.87 )
