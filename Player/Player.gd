@@ -8,6 +8,8 @@ const JUMP_SPEED = 10
 var velocity = Vector2()
 var other_player
 
+var polarity = -1
+
 #nready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta: float):
@@ -30,6 +32,8 @@ func _physics_process(delta: float):
 	
 	#var magnetic_vector = position.move_toward(other_player.position,1)
 	var magnetic_vector =  other_player.position - position
+	
+	magnetic_vector.y *= polarity 
 	
 	velocity += magnetic_vector*0.1
 	
