@@ -5,10 +5,17 @@ const WALK_MAX_SPEED = 200
 const STOP_FORCE = 1300
 const JUMP_SPEED = 50
 
+
+onready var audio = $AudioStreamPlayer
+onready var audio_tracks = [preload("res://Sounds/polarize-negative.ogg"), preload("res://Sounds/polarize-positive.ogg")]
+
 var velocity: Vector2 = Vector2.ZERO
 var magnetic_force: Vector2 = Vector2.ZERO # all magnetic force applied to body
 var other_player
 export(int, -1, 1, 1) var polarity = 1
+
+func _ready():
+	update_color()
 
 
 func _physics_process(delta: float):
@@ -17,7 +24,7 @@ func _physics_process(delta: float):
 	
 	#Magnetic movement
 	var attraction = -1 if polarity == other_player.polarity else 1
-	var magnetic_vector = apply_magnetic_force(other_player.global_position, Vector2(10, attraction) * 5)
+	apply_magnetic_force(other_player.global_position, Vector2(10, attraction) * 5)
 	
 	$Line2D.points[1] = velocity
 	$Line2D2.points[1] = magnetic_force * 10
@@ -32,7 +39,23 @@ func _physics_process(delta: float):
 
 func change_polarity():
 	polarity *= -1
-	# other_player.polarity *= -1
+	update_color()
+	if polarity == 0:
+		return
+	var track_num = int(polarity > 0)
+	audio.volume_db = linear2db(Configs.master_audio_volume / 10)
+	audio.stream = audio_tracks[track_num]
+	audio.play()
+	
+
+func update_color():
+	var new_color = Color.white
+	match polarity:
+		1:
+			new_color = Color.red
+		-1:
+			new_color = Color.blue
+	$Sprite.modulate = new_color
 
 
 func apply_movement(delta: float):

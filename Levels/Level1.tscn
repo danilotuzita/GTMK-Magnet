@@ -83,6 +83,7 @@ position = Vector2( 89.0268, 304.124 )
 
 [node name="Player2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 89.0268, 388.881 )
+polarity = -1
 
 [node name="WinConditions" type="Node" parent="."]
 
@@ -90,5 +91,5 @@ position = Vector2( 89.0268, 388.881 )
 position = Vector2( 555.191, 338.771 )
 
 [node name="PressureButton2" parent="WinConditions" instance=ExtResource( 3 )]
-position = Vector2( 612.337, 414.966 )
+position = Vector2( 555.214, 354.353 )
 rotation = -3.14159

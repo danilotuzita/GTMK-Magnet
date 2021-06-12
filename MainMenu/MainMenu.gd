@@ -63,6 +63,7 @@ func _on_HSlider_value_changed(value):
 	masterVolumeLabel.placeholder_text = String(value)
 	masterVolumeLabel.text = String(value)
 	masterVolumeSlider.value = value
+	Configs.master_audio_volume = value / 100
 
 
 func _on_Back_pressed():

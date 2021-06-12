@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/polarize-negative.ogg-da37ceb161bfd1c328b2e040cbcb9f9d.oggstr"
+
+[deps]
+
+source_file="res://Sounds/polarize-negative.ogg"
+dest_files=[ "res://.import/polarize-negative.ogg-da37ceb161bfd1c328b2e040cbcb9f9d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
