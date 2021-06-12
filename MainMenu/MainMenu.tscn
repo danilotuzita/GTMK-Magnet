@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://MainMenu/Logo.png" type="Texture" id=3]
+[ext_resource path="res://sprites/light.png" type="Texture" id=4]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -11,9 +13,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -20.1562
+margin_top = -80.8121
+margin_right = 35.8438
+margin_bottom = 239.188
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LightBlue" type="Light2D" parent="."]
+position = Vector2( 229.887, 179.294 )
+scale = Vector2( 0.959557, 1.37874 )
+texture = ExtResource( 4 )
+
+[node name="LightRed" type="Light2D" parent="."]
+position = Vector2( 774.532, 248.88 )
+rotation = -0.523598
+scale = Vector2( 0.661017, 1.0725 )
+texture = ExtResource( 4 )
+
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
+margin_left = 0.890869
 margin_top = 50.0
+margin_right = 0.890869
 margin_bottom = 178.0
 text = "Magnetic Robots"
 align = 1
@@ -23,7 +50,6 @@ __meta__ = {
 }
 
 [node name="MainButtons" type="VBoxContainer" parent="."]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -58,6 +84,7 @@ rect_min_size = Vector2( 256, 60 )
 text = "Quit Game"
 
 [node name="Options" type="VBoxContainer" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -111,9 +138,15 @@ margin_bottom = 86.0
 size_flags_horizontal = 4
 text = "Back"
 
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Tween2" type="Tween" parent="."]
+
 [connection signal="pressed" from="MainButtons/StartGame" to="." method="_on_StartGame_pressed"]
 [connection signal="pressed" from="MainButtons/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="MainButtons/QuitGame" to="." method="_on_QuitGame_pressed"]
 [connection signal="text_entered" from="Options/Volume/SliderValue" to="." method="_on_SliderValue_text_entered"]
 [connection signal="value_changed" from="Options/MasterVolumeSlider" to="." method="_on_HSlider_value_changed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_Back_pressed"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="tween_completed" from="Tween2" to="." method="_on_Tween2_tween_completed"]
