@@ -7,10 +7,8 @@ const JUMP_SPEED = 200
 
 var velocity = Vector2()
 var other_player
-
 var polarity = 1
 
-#nready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta: float):
 	# Horizontal movement code. First, get the player's input.
@@ -24,12 +22,7 @@ func _physics_process(delta: float):
 	# Clamp to the maximum horizontal movement speed.
 	velocity.x = clamp(velocity.x, -WALK_MAX_SPEED, WALK_MAX_SPEED)
 
-	# Vertical movement code. Apply gravity.
-	#velocity.y += gravity * delta
-	
 	#Magnetic movement
-	
-	
 	#var magnetic_vector = position.move_toward(other_player.position,1)
 	var magnetic_vector =  other_player.position - position
 	
@@ -44,12 +37,12 @@ func _physics_process(delta: float):
 	# Move based on the velocity and snap to the ground.
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2.UP)
 	
-	# $Label.text = String(velocity)
 	
 	# Check for jumping. is_on_floor() must be called after movement code.
 	if (is_on_floor() or is_on_ceiling()) and Input.is_action_just_pressed("jump"):
 		velocity.y = -JUMP_SPEED*(magnetic_vector.y/abs(magnetic_vector.y))
-		
+
+
 func change_polarity():
 	polarity *= -1
 	other_player.polarity *= -1

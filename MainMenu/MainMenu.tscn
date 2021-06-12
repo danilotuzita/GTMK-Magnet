@@ -26,14 +26,14 @@ __meta__ = {
 }
 
 [node name="LightBlue" type="Light2D" parent="."]
-position = Vector2( 229.887, 179.294 )
-scale = Vector2( 0.959557, 1.37874 )
+position = Vector2( 234.091, 165.84 )
+scale = Vector2( 0.961659, 1.37874 )
 texture = ExtResource( 4 )
 
 [node name="LightRed" type="Light2D" parent="."]
-position = Vector2( 774.532, 248.88 )
+position = Vector2( 747.949, 228.422 )
 rotation = -0.523598
-scale = Vector2( 0.661017, 1.0725 )
+scale = Vector2( 0.82217, 1.0725 )
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="."]

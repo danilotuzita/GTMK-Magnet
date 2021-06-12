@@ -1,5 +1,8 @@
 extends Control
 
+
+export(String) var starting_level = "Level2"
+
 var regex = RegEx.new()
 
 onready var mainButtons = $MainButtons
@@ -42,7 +45,7 @@ func _on_Tween2_tween_completed(_object, _key):
 func _on_StartGame_pressed():
 	print("Start the Game")
 	# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://Levels/Level1.tscn")
+	get_tree().change_scene("res://Levels/" + starting_level + ".tscn")
 
 
 func _on_Options_pressed():
