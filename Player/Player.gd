@@ -3,12 +3,12 @@ extends KinematicBody2D
 const WALK_FORCE = 600
 const WALK_MAX_SPEED = 200
 const STOP_FORCE = 1300
-const JUMP_SPEED = 10
+const JUMP_SPEED = 200
 
 var velocity = Vector2()
 var other_player
 
-var polarity = -1
+var polarity = 1
 
 #nready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -33,9 +33,10 @@ func _physics_process(delta: float):
 	#var magnetic_vector = position.move_toward(other_player.position,1)
 	var magnetic_vector =  other_player.position - position
 	
+	magnetic_vector = magnetic_vector.normalized()*5
 	magnetic_vector.y *= polarity 
-	
-	velocity += magnetic_vector*0.1
+	magnetic_vector.x *= 10
+	velocity += magnetic_vector
 	
 	$Line2D.points[1] = velocity
 	$Line2D2.points[1] = magnetic_vector
@@ -47,7 +48,7 @@ func _physics_process(delta: float):
 	
 	# Check for jumping. is_on_floor() must be called after movement code.
 	if (is_on_floor() or is_on_ceiling()) and Input.is_action_just_pressed("jump"):
-		velocity.y = -JUMP_SPEED*magnetic_vector.y
+		velocity.y = -JUMP_SPEED*(magnetic_vector.y/abs(magnetic_vector.y))
 		
 func change_polarity():
 	polarity *= -1
