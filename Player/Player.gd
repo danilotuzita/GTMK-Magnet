@@ -44,7 +44,7 @@ func _physics_process(delta: float):
 	# Move based on the velocity and snap to the ground.
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2.UP)
 	
-	$Label.text = String(velocity)
+	# $Label.text = String(velocity)
 	
 	# Check for jumping. is_on_floor() must be called after movement code.
 	if (is_on_floor() or is_on_ceiling()) and Input.is_action_just_pressed("jump"):

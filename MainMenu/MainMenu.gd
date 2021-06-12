@@ -28,12 +28,12 @@ func tween_lights():
 	tween.start()
 	tween2.start()
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(_object, _key):
 	tween.interpolate_property(lightBlue, "energy", tween_values[0], tween_values[1], rand_range(1, 2), Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 	tween_values.invert()
 	tween.start()
 
-func _on_Tween2_tween_completed(object, key):
+func _on_Tween2_tween_completed(_object, _key):
 	tween2.interpolate_property(lightRed, "energy", tween_values2[0], tween_values2[1], rand_range(1, 2), Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 	tween_values2.invert()
 	tween2.start()
@@ -42,7 +42,7 @@ func _on_Tween2_tween_completed(object, key):
 func _on_StartGame_pressed():
 	print("Start the Game")
 	# warning-ignore:return_value_discarded
-	get_tree().change_scene("res://World.tscn")
+	get_tree().change_scene("res://Levels/Level1.tscn")
 
 
 func _on_Options_pressed():
