@@ -1,0 +1,119 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=1]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_top = 50.0
+margin_bottom = 178.0
+text = "Magnetic Robots"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -111.0
+margin_right = 128.0
+margin_bottom = 111.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartGame" type="Button" parent="MainButtons"]
+margin_right = 256.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 256, 60 )
+text = "Start Game"
+
+[node name="Options" type="Button" parent="MainButtons"]
+margin_top = 75.0
+margin_right = 256.0
+margin_bottom = 135.0
+rect_min_size = Vector2( 256, 60 )
+text = "Options"
+
+[node name="QuitGame" type="Button" parent="MainButtons"]
+margin_top = 150.0
+margin_right = 256.0
+margin_bottom = 210.0
+rect_min_size = Vector2( 256, 60 )
+text = "Quit Game"
+
+[node name="Options" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -72.5
+margin_right = 128.0
+margin_bottom = 72.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsLabel" type="Label" parent="Options"]
+margin_right = 256.0
+margin_bottom = 14.0
+text = "Audio"
+align = 1
+
+[node name="Volume" type="HBoxContainer" parent="Options"]
+margin_top = 18.0
+margin_right = 256.0
+margin_bottom = 42.0
+
+[node name="SliderLabel" type="Label" parent="Options/Volume"]
+margin_top = 5.0
+margin_right = 194.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Master volume: "
+
+[node name="SliderValue" type="LineEdit" parent="Options/Volume"]
+margin_left = 198.0
+margin_right = 256.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 15, 0 )
+align = 2
+max_length = 3
+placeholder_text = "50"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="Options"]
+margin_top = 46.0
+margin_right = 256.0
+margin_bottom = 62.0
+value = 50.0
+
+[node name="Back" type="Button" parent="Options"]
+margin_left = 107.0
+margin_top = 66.0
+margin_right = 149.0
+margin_bottom = 86.0
+size_flags_horizontal = 4
+text = "Back"
+
+[connection signal="pressed" from="MainButtons/StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="pressed" from="MainButtons/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="MainButtons/QuitGame" to="." method="_on_QuitGame_pressed"]
+[connection signal="text_entered" from="Options/Volume/SliderValue" to="." method="_on_SliderValue_text_entered"]
+[connection signal="value_changed" from="Options/MasterVolumeSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_Back_pressed"]
