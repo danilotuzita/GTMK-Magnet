@@ -49,3 +49,6 @@ func _physics_process(delta: float):
 	if (is_on_floor() or is_on_ceiling()) and Input.is_action_just_pressed("jump"):
 		velocity.y = -JUMP_SPEED*magnetic_vector.y
 		
+func change_polarity():
+	polarity *= -1
+	other_player.polarity *= -1
