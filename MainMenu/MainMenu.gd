@@ -1,7 +1,7 @@
 extends Control
 
 
-export(String) var starting_level = "Level2"
+export(String) var starting_level = "LevelTest"
 
 var regex = RegEx.new()
 

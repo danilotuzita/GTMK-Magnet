@@ -22,18 +22,20 @@ margin_right = 35.8438
 margin_bottom = 239.188
 texture = ExtResource( 3 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="LightBlue" type="Light2D" parent="."]
-position = Vector2( 234.091, 165.84 )
-scale = Vector2( 0.961659, 1.37874 )
+position = Vector2( 226.399, 183.476 )
+rotation = 0.261799
+scale = Vector2( 0.817683, 1.40575 )
 texture = ExtResource( 4 )
 
 [node name="LightRed" type="Light2D" parent="."]
-position = Vector2( 747.949, 228.422 )
-rotation = -0.523598
-scale = Vector2( 0.82217, 1.0725 )
+position = Vector2( 824.819, 313.737 )
+rotation = -0.785397
+scale = Vector2( 0.82217, 1.65191 )
 texture = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="."]
@@ -46,6 +48,7 @@ text = "Magnetic Robots"
 align = 1
 autowrap = true
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -60,6 +63,7 @@ margin_right = 128.0
 margin_bottom = 111.0
 custom_constants/separation = 15
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -94,6 +98,7 @@ margin_top = -72.5
 margin_right = 128.0
 margin_bottom = 72.5
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 

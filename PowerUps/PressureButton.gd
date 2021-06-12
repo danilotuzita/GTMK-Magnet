@@ -21,6 +21,5 @@ func _on_PressureButton_body_exited(_body):
 
 
 func _on_Tween_tween_completed(_object, _key):
-	print_debug("GREAT JOB!")
 	completed = true
 	emit_signal("objective_complete")

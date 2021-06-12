@@ -33,6 +33,11 @@ jump={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="TileMap"
+2d_physics/layer_2="Magnet"
+
 [physics]
 
 common/enable_pause_aware_picking=true
