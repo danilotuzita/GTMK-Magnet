@@ -20,8 +20,8 @@ Configs="*res://Configs.gd"
 
 [display]
 
-window/size/width=1636
-window/size/height=920
+window/size/width=1650
+window/size/height=930
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
