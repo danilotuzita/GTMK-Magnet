@@ -261,6 +261,8 @@ animations = [ {
 } ]
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 2
+z_as_relative = false
 collision_layer = 3
 collision_mask = 2
 script = ExtResource( 1 )
@@ -278,6 +280,8 @@ __meta__ = {
 [node name="Line2D" type="Line2D" parent="."]
 position = Vector2( 0.187286, -0.187286 )
 rotation = 0.00031729
+z_index = 1
+z_as_relative = false
 points = PoolVector2Array( 0.0588069, -12.3127, 96.3461, 5.25849 )
 width = 25.0
 default_color = Color( 1, 1, 1, 1 )

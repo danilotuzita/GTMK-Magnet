@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/platformIndustrial_005.png-80f2dbd64d5b9843ac990b31ed3a1186.stex"
+path="res://.import/arrow_light.png-96c83cdb1c35e9f609e23524ed958014.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/platformIndustrial_005.png"
-dest_files=[ "res://.import/platformIndustrial_005.png-80f2dbd64d5b9843ac990b31ed3a1186.stex" ]
+source_file="res://Sprites/arrow_light.png"
+dest_files=[ "res://.import/arrow_light.png-96c83cdb1c35e9f609e23524ed958014.stex" ]
 
 [params]
 

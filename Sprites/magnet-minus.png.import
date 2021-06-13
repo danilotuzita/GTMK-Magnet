@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/platformIndustrial_081.png-a3fd7eb9d9426b4f66eee4bebbf54168.stex"
+path="res://.import/magnet-minus.png-c129d83eb531b47faed039df7d8473f7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/platformIndustrial_081.png"
-dest_files=[ "res://.import/platformIndustrial_081.png-a3fd7eb9d9426b4f66eee4bebbf54168.stex" ]
+source_file="res://Sprites/magnet-minus.png"
+dest_files=[ "res://.import/magnet-minus.png-c129d83eb531b47faed039df7d8473f7.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/platformIndustrial_029.png-ef88aadbd73dafdb61daec9709b6a3d9.stex"
+path="res://.import/alarm_light.png-267ee49442ccf19478e1d2e85a5c7f52.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/platformIndustrial_029.png"
-dest_files=[ "res://.import/platformIndustrial_029.png-ef88aadbd73dafdb61daec9709b6a3d9.stex" ]
+source_file="res://Sprites/alarm_light.png"
+dest_files=[ "res://.import/alarm_light.png-267ee49442ccf19478e1d2e85a5c7f52.stex" ]
 
 [params]
 

@@ -41,18 +41,20 @@ func _process(_delta):
 
 
 func _on_pressed():
+	var total_pressed: float = 0
 	for child in winConditions.get_children():
-		if not child.pressed:
-			child.start_flashing_monitor()
-			return
+		if child.pressed:
+			total_pressed += 1
 	for child in winConditions.get_children():
-		child.start_powering()
+		child.start_powering(total_pressed / winConditions.get_child_count())
 
 
 func _on_released():
-	for child in winConditions.get_children():
-		child.stop_powering()
-		child.stop_flashing_monitor()
+	_on_pressed()
+#	return
+#	for child in winConditions.get_children():
+#		child.stop_powering()
+#		child.stop_flashing_monitor()
 
 
 func _on_objective_complete():

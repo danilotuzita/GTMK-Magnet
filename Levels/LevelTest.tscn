@@ -6,7 +6,7 @@
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/Level.gd" type="Script" id=5]
 [ext_resource path="res://PowerUps/Magnet.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/platformIndustrial_057.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/background.png" type="Texture" id=7]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 5 )
@@ -68,7 +68,7 @@ position = Vector2( 168.153, 49.7591 )
 [node name="WinConditions" type="Node" parent="."]
 
 [node name="PressureButton" parent="WinConditions" instance=ExtResource( 3 )]
-position = Vector2( 1331.76, 713.05 )
+position = Vector2( 1332.16, 709.081 )
 
 [node name="PressureButton2" parent="WinConditions" instance=ExtResource( 3 )]
 position = Vector2( 1333.74, 190.844 )
@@ -80,8 +80,8 @@ rotation = -3.14159
 position = Vector2( 1334.62, 117.735 )
 polarity = -1
 intensity = 10.0
+start_angle = 180.0
 
 [node name="Magnet2" parent="Magnets" instance=ExtResource( 6 )]
-position = Vector2( 1331.8, 783.858 )
+position = Vector2( 1333.28, 834.369 )
 intensity = 7.0
-start_angle = 180.0

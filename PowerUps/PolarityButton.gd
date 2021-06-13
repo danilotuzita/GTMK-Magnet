@@ -4,7 +4,7 @@ onready var tween = $Tween
 onready var spin_sprite = $Sprite
 
 func _ready():
-	tween.interpolate_property(spin_sprite, "rotation", 0, 2 * PI, 2)
+	tween.interpolate_property(spin_sprite, "rotation", 0, -2 * PI, 2)
 	tween.repeat = true
 	tween.start()
 

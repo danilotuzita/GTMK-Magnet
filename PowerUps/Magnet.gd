@@ -35,7 +35,7 @@ func _physics_process(_delta):
 			var attraction = -1 if polarity == other_body.polarity else 1
 			other_body.apply_magnetic_force(global_position, Vector2(attraction, attraction) * intensity)
 			var angle = global_position.angle_to_point(other_body.global_position)
-			$Sprite.rotation = angle + (PI / 2)
+			$Sprite.rotation = angle - (PI / 2)
 		else:
 			line.visible = false
 
@@ -58,15 +58,15 @@ func set_polarity(new_polarity: int):
 	polarity = new_polarity
 	match polarity:
 		1:
-			$Sprite/ColorRect.visible = true
-			$Sprite/ColorRect2.visible = true
+			$Sprite/Plus.visible = true
+			$Sprite/Minus.visible = false
 			if hint:
 				hint.modulate = color_positive
 		0:
 			$Sprite/ColorRect.visible = false
 			$Sprite/ColorRect2.visible = false
 		-1:
-			$Sprite/ColorRect.visible = true
-			$Sprite/ColorRect2.visible = false
+			$Sprite/Plus.visible = false
+			$Sprite/Minus.visible = true
 			if hint:
 				hint.modulate = color_negative

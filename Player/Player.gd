@@ -18,6 +18,7 @@ var velocity: Vector2 = Vector2.ZERO
 var magnetic_force: Vector2 = Vector2.ZERO # all magnetic force applied to body
 var other_player
 var step_count = 0
+var teleporting = false
 var teleported = false
 
 export(String, "fat", "slim") var robot = "fat"
@@ -38,10 +39,11 @@ func _ready():
 
 
 func _physics_process(delta: float):
+	if teleporting:
+		return
 	var x = 1 if sprite.flip_h else -1
 	var y = 1 if sprite.flip_v else -1
 	light.position = Vector2(x * abs(light.position.x), y * abs(light.position.y))
-	# light.rotation = x * light.rotation
 	
 	$Line2D.points[1] = other_player.position - position
 	$Line2D2.points[1] = velocity #magnetic_force * 10
@@ -153,6 +155,7 @@ func _on_AnimatedSprite_frame_changed():
 			step_count += 1
 
 func teleport_animation(direction = 1):
+	teleporting = true
 	if direction == 1:
 		$Tween.interpolate_property(self, "scale", Vector2.ONE, Vector2.ZERO, 1, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
 	else:
