@@ -3,7 +3,7 @@ extends KinematicBody2D
 const WALK_FORCE = 600
 const WALK_MAX_SPEED = 200
 const STOP_FORCE = 1300
-const JUMP_SPEED = 50
+export var JUMP_SPEED = 250
 
 
 onready var audio = $AudioStreamPlayer
@@ -12,6 +12,7 @@ onready var steps = $AudioSteps
 onready var steps_tracks = [preload("res://Sounds/step-1.ogg"), preload("res://Sounds/step-2.ogg"), preload("res://Sounds/jump.ogg")]
 onready var sprite = $AnimatedSprite
 onready var panel_sprite = $AnimatedSprite2
+onready var light = $LightFat
 
 var velocity: Vector2 = Vector2.ZERO
 var magnetic_force: Vector2 = Vector2.ZERO # all magnetic force applied to body
@@ -19,7 +20,7 @@ var other_player
 var step_count = 0
 var teleported = false
 
-export(String, "FAT", "SLIM") var robot = "FAT"
+export(String, "fat", "slim") var robot = "fat"
 export(int, -1, 1, 1) var polarity = 1 setget set_polarity
 export var color_positive = Color("cc4b54")
 export var color_negative = Color("67a9db")
@@ -28,13 +29,22 @@ export var can_fly = false
 signal teleported()
 
 func _ready():
+	sprite.animation = robot + "-walk"
+	if robot == "slim":
+		$LightFat.visible = false
+		light = $LightSlim
+		light.visible = true
 	update_color()
 
 
 func _physics_process(delta: float):
 	var x = 1 if sprite.flip_h else -1
 	var y = 1 if sprite.flip_v else -1
-	$Light2D.position = Vector2(x * abs($Light2D.position.x), y * abs($Light2D.position.y))
+	light.position = Vector2(x * abs(light.position.x), y * abs(light.position.y))
+	# light.rotation = x * light.rotation
+	
+	$Line2D.points[1] = other_player.position - position
+	$Line2D2.points[1] = velocity #magnetic_force * 10
 	
 	magnetic_force = Vector2.ZERO
 	apply_movement(delta)
@@ -43,15 +53,18 @@ func _physics_process(delta: float):
 	var attraction = -1 if polarity == other_player.polarity else 1
 	apply_magnetic_force(other_player.global_position, Vector2(15, attraction) * 5)
 	
-	$Line2D.points[1] = other_player.position - position
-	$Line2D2.points[1] = magnetic_force * 10
 
 	# Move based on the velocity and snap to the ground.
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2.UP)
 	
 	# Check for jumping. is_on_floor() must be called after movement code.
-	if (is_on_floor() or is_on_ceiling() or can_fly) and Input.is_action_just_pressed("jump"):
-		velocity.y = -JUMP_SPEED * magnetic_force.y
+	var jump_direction = 0
+	if can_fly:
+		jump_direction = 1 if magnetic_force.y > 0 else -1
+	else:
+		jump_direction = int(is_on_floor()) - int(is_on_ceiling())
+	if jump_direction and Input.is_action_just_pressed("jump"):
+		velocity.y += -JUMP_SPEED * jump_direction
 		steps.volume_db = linear2db(Configs.master_audio_volume / 20)
 		steps.stream = steps_tracks[2]
 		steps.play()
@@ -75,13 +88,13 @@ func change_polarity():
 
 func update_color():
 	var new_color = Color.white
-	var new_anim = "fat-positive"
+	var new_anim = robot + "-positive"
 	match polarity:
 		1:
 			new_color = color_positive
 		-1:
 			new_color = color_negative
-			new_anim = "fat-negative"
+			new_anim = robot + "-negative"
 	if sprite:
 		sprite.modulate = new_color
 	if panel_sprite:
@@ -141,9 +154,9 @@ func _on_AnimatedSprite_frame_changed():
 
 func teleport_animation(direction = 1):
 	if direction == 1:
-		$Tween.interpolate_property(self, "scale", Vector2.ONE, Vector2.ZERO, .68, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
+		$Tween.interpolate_property(self, "scale", Vector2.ONE, Vector2.ZERO, 1, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
 	else:
-		$Tween.interpolate_property(self, "scale", Vector2.ZERO, Vector2.ONE, .68, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
+		$Tween.interpolate_property(self, "scale", Vector2.ZERO, Vector2.ONE, 1, Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
 	audio.stream = audio_tracks[2]
 	audio.volume_db = linear2db(Configs.master_audio_volume / 10)
 	$Tween.start()

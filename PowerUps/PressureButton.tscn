@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://PowerUps/PressureButton.gd" type="Script" id=1]
 [ext_resource path="res://Sounds/pressure-button.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Sprites/pessure_button.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/pessure_button_back.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/light.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/platformIndustrial_112.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/platformIndustrial_081.png" type="Texture" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32.2206, 2.03886 )
@@ -42,6 +45,23 @@ __meta__ = {
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 2 )
+
+[node name="SpriteArrow" type="Sprite" parent="."]
+position = Vector2( 0.286254, -60.9262 )
+scale = Vector2( 0.555533, 0.727259 )
+texture = ExtResource( 6 )
+
+[node name="SpriteMonitor" type="Sprite" parent="."]
+position = Vector2( 0.0281677, -132.702 )
+texture = ExtResource( 7 )
+
+[node name="Tween2" type="Tween" parent="."]
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, -132.137 )
+scale = Vector2( 0.2, 0.210471 )
+texture = ExtResource( 5 )
+energy = 0.6
 
 [connection signal="body_entered" from="." to="." method="_on_PressureButton_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_PressureButton_body_exited"]
