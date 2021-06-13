@@ -27,7 +27,7 @@ func _ready():
 	Configs.bkg_player.play()
 	tween_lights()
 	if Configs.bonus_levels:
-		$MainButtons/UnfinishedLevels.visible
+		$MainButtons/UnfinishedLevels.visible = true
 
 func tween_lights():
 	tween.interpolate_property(lightBlue, "energy", tween_values[0], tween_values[1], 1, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
@@ -107,4 +107,4 @@ func _on_SFXSliderValue_text_entered(new_text):
 
 
 func _on_UnfinishedLevels_pressed():
-	get_tree().change_scene("res://Levels/" + starting_level + ".tscn")
+	get_tree().change_scene("res://Levels/Level4.tscn")

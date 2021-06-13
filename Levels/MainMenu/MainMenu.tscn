@@ -17,14 +17,8 @@ __meta__ = {
 starting_level = "Level1"
 
 [node name="Background" type="TextureRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -540.0
-margin_top = -460.0
-margin_right = 540.0
-margin_bottom = 460.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 5
 size_flags_vertical = 5
 texture = ExtResource( 1 )
@@ -34,13 +28,13 @@ __meta__ = {
 }
 
 [node name="LightBlue" type="Light2D" parent="."]
-position = Vector2( 538.443, 244.089 )
+position = Vector2( 356.443, 278.089 )
 rotation = 0.261799
 scale = Vector2( 0.817683, 1.40575 )
 texture = ExtResource( 2 )
 
 [node name="LightRed" type="Light2D" parent="."]
-position = Vector2( 1105.43, 358.635 )
+position = Vector2( 1267.43, 388.635 )
 rotation = -0.785397
 scale = Vector2( 0.82217, 1.65191 )
 texture = ExtResource( 2 )
