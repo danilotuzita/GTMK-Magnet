@@ -26,6 +26,8 @@ func _ready():
 	masterVolumeLabel.placeholder_text = String(masterVolumeSlider.value)
 	Configs.bkg_player.play()
 	tween_lights()
+	if Configs.bonus_levels:
+		$MainButtons/UnfinishedLevels.visible
 
 func tween_lights():
 	tween.interpolate_property(lightBlue, "energy", tween_values[0], tween_values[1], 1, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
@@ -102,3 +104,7 @@ func _on_SFXSliderValue_text_entered(new_text):
 		_on_SFXVolumeSlider_value_changed(int(new_text))
 	else:
 		_on_SFXVolumeSlider_value_changed(sfxVolumeSlider.value)
+
+
+func _on_UnfinishedLevels_pressed():
+	get_tree().change_scene("res://Levels/" + starting_level + ".tscn")

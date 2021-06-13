@@ -3,6 +3,7 @@ extends Node
 var master_audio_volume = .25 setget set_master_audio
 var music_volume = 1
 var sfx_volume = 1
+var bonus_levels = false
 
 var bkg_player: AudioStreamPlayer = AudioStreamPlayer.new()
 var bkg_music = load("res://Sounds/Music/sci-fi_theme.mp3")

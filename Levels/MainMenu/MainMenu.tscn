@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Levels/MainMenu/Logo.png" type="Texture" id=1]
 [ext_resource path="res://sprites/light.png" type="Texture" id=2]
 [ext_resource path="res://Levels/MainMenu/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://Styles/myFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Styles/TitleFont.tres" type="DynamicFont" id=5]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
@@ -49,6 +51,7 @@ margin_left = 0.890869
 margin_top = 50.0
 margin_right = 0.890869
 margin_bottom = 178.0
+custom_fonts/font = ExtResource( 5 )
 text = "Magnetic Robots"
 align = 1
 autowrap = true
@@ -62,10 +65,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -128.0
-margin_top = -111.0
-margin_right = 128.0
-margin_bottom = 111.0
+margin_left = -131.5
+margin_top = -142.5
+margin_right = 131.5
+margin_bottom = 142.5
 custom_constants/separation = 15
 __meta__ = {
 "_edit_lock_": true,
@@ -73,23 +76,35 @@ __meta__ = {
 }
 
 [node name="StartGame" type="Button" parent="MainButtons"]
-margin_right = 256.0
+margin_right = 263.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 256, 60 )
+custom_fonts/font = ExtResource( 4 )
 text = "Start Game"
+
+[node name="UnfinishedLevels" type="Button" parent="MainButtons"]
+visible = false
+margin_top = 75.0
+margin_right = 263.0
+margin_bottom = 135.0
+rect_min_size = Vector2( 256, 60 )
+custom_fonts/font = ExtResource( 4 )
+text = "Unfinished Levels"
 
 [node name="Options" type="Button" parent="MainButtons"]
 margin_top = 75.0
-margin_right = 256.0
+margin_right = 263.0
 margin_bottom = 135.0
 rect_min_size = Vector2( 256, 60 )
+custom_fonts/font = ExtResource( 4 )
 text = "Options"
 
 [node name="QuitGame" type="Button" parent="MainButtons"]
 margin_top = 150.0
-margin_right = 256.0
+margin_right = 263.0
 margin_bottom = 210.0
 rect_min_size = Vector2( 256, 60 )
+custom_fonts/font = ExtResource( 4 )
 text = "Quit Game"
 
 [node name="Options" type="VBoxContainer" parent="."]
@@ -98,46 +113,47 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -128.0
-margin_top = -72.5
-margin_right = 128.0
-margin_bottom = 72.5
+margin_left = -148.5
+margin_top = -84.5
+margin_right = 148.5
+margin_bottom = 84.5
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="OptionsLabel" type="Label" parent="Options"]
-margin_right = 256.0
-margin_bottom = 14.0
+margin_right = 297.0
+margin_bottom = 45.0
+custom_fonts/font = ExtResource( 4 )
 text = "Audio"
 align = 1
 
 [node name="Volume" type="HBoxContainer" parent="Options"]
-margin_top = 18.0
-margin_right = 256.0
-margin_bottom = 42.0
+margin_top = 49.0
+margin_right = 297.0
+margin_bottom = 94.0
 
 [node name="SliderLabel" type="Label" parent="Options/Volume"]
-margin_top = 5.0
-margin_right = 194.0
-margin_bottom = 19.0
+margin_right = 235.0
+margin_bottom = 45.0
 size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
 text = "Master volume: "
 
 [node name="SliderValue" type="LineEdit" parent="Options/Volume"]
-margin_left = 198.0
-margin_right = 256.0
-margin_bottom = 24.0
+margin_left = 239.0
+margin_right = 297.0
+margin_bottom = 45.0
 rect_min_size = Vector2( 15, 0 )
 align = 2
 max_length = 3
 placeholder_text = "50"
 
 [node name="MasterVolumeSlider" type="HSlider" parent="Options"]
-margin_top = 46.0
-margin_right = 256.0
-margin_bottom = 62.0
+margin_top = 98.0
+margin_right = 297.0
+margin_bottom = 114.0
 value = 50.0
 
 [node name="MusicVolume" type="HBoxContainer" parent="Options"]
@@ -151,6 +167,7 @@ margin_top = 5.0
 margin_right = 194.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
 text = "Music volume: "
 
 [node name="MusicSliderValue" type="LineEdit" parent="Options/MusicVolume"]
@@ -180,6 +197,7 @@ margin_top = 5.0
 margin_right = 194.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 4 )
 text = "Effects volume: "
 
 [node name="SFXSliderValue" type="LineEdit" parent="Options/SFXVolume"]
@@ -199,11 +217,12 @@ margin_bottom = 62.0
 value = 100.0
 
 [node name="Back" type="Button" parent="Options"]
-margin_left = 107.0
-margin_top = 66.0
-margin_right = 149.0
-margin_bottom = 86.0
+margin_left = 103.0
+margin_top = 118.0
+margin_right = 194.0
+margin_bottom = 169.0
 size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 4 )
 text = "Back"
 
 [node name="Tween" type="Tween" parent="."]
@@ -211,6 +230,7 @@ text = "Back"
 [node name="Tween2" type="Tween" parent="."]
 
 [connection signal="pressed" from="MainButtons/StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="pressed" from="MainButtons/UnfinishedLevels" to="." method="_on_UnfinishedLevels_pressed"]
 [connection signal="pressed" from="MainButtons/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="MainButtons/QuitGame" to="." method="_on_QuitGame_pressed"]
 [connection signal="text_entered" from="Options/Volume/SliderValue" to="." method="_on_SliderValue_text_entered"]

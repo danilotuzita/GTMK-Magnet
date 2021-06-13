@@ -12,7 +12,7 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
-next_level = "Level2"
+next_level = "Level3"
 
 [node name="BackBackground" type="ColorRect" parent="."]
 margin_left = -74.0825

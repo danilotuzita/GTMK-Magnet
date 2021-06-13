@@ -22,7 +22,6 @@ Configs="*res://Configs.gd"
 
 window/size/width=1650
 window/size/height=930
-window/size/borderless=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
