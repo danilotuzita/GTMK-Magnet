@@ -25,7 +25,7 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="."]
-modulate = Color( 0.6, 0.6, 0.6, 1 )
+modulate = Color( 0.447059, 0.415686, 0.415686, 1 )
 margin_left = -29.0
 margin_top = -24.0
 margin_right = 1683.0
@@ -77,3 +77,5 @@ position = Vector2( 1530, 40 )
 rotation = -3.14159
 
 [node name="Magnets" type="Node" parent="."]
+
+[node name="Spikes" type="Node" parent="."]

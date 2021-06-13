@@ -3,6 +3,7 @@ extends Node2D
 onready var player1 = $Player1
 onready var player2 = $Player2
 onready var winConditions = $WinConditions
+onready var spikes = $Spikes
 
 var start_pos1: Vector2
 var start_polarity1: int
@@ -28,16 +29,25 @@ func _ready():
 		child.connect("pressed", self, "_on_pressed")
 		child.connect("released", self, "_on_released")
 		child.connect("objective_complete", self, "_on_objective_complete")
+		
+	for child in spikes.get_children():
+		child.connect("spiked", self, "reset_players")
 	
+
 
 func _process(_delta):
 	if Input.is_action_just_pressed("restart"):
-		player1.global_position = start_pos1
-		player1.polarity = start_polarity1
-		player1.velocity = Vector2.ZERO
-		player2.global_position = start_pos2
-		player2.polarity = start_polarity2
-		player2.velocity = Vector2.ZERO
+		reset_players()
+	
+
+
+func reset_players():
+	player1.global_position = start_pos1
+	player1.polarity = start_polarity1
+	player1.velocity = Vector2.ZERO
+	player2.global_position = start_pos2
+	player2.polarity = start_polarity2
+	player2.velocity = Vector2.ZERO
 
 
 func _on_pressed():

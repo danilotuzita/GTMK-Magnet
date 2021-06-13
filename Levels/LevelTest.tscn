@@ -85,3 +85,5 @@ start_angle = 180.0
 [node name="Magnet2" parent="Magnets" instance=ExtResource( 6 )]
 position = Vector2( 1333.28, 834.369 )
 intensity = 7.0
+
+[node name="Spikes" type="Node" parent="."]

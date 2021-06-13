@@ -1,0 +1,224 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Levels/MainMenu/Logo.png" type="Texture" id=1]
+[ext_resource path="res://sprites/light.png" type="Texture" id=2]
+[ext_resource path="res://Levels/MainMenu/MainMenu.gd" type="Script" id=3]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+starting_level = "Level1"
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -460.0
+margin_right = 540.0
+margin_bottom = 460.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LightBlue" type="Light2D" parent="."]
+position = Vector2( 538.443, 244.089 )
+rotation = 0.261799
+scale = Vector2( 0.817683, 1.40575 )
+texture = ExtResource( 2 )
+
+[node name="LightRed" type="Light2D" parent="."]
+position = Vector2( 1105.43, 358.635 )
+rotation = -0.785397
+scale = Vector2( 0.82217, 1.65191 )
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+margin_left = 0.890869
+margin_top = 50.0
+margin_right = 0.890869
+margin_bottom = 178.0
+text = "Magnetic Robots"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -111.0
+margin_right = 128.0
+margin_bottom = 111.0
+custom_constants/separation = 15
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="StartGame" type="Button" parent="MainButtons"]
+margin_right = 256.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 256, 60 )
+text = "Start Game"
+
+[node name="Options" type="Button" parent="MainButtons"]
+margin_top = 75.0
+margin_right = 256.0
+margin_bottom = 135.0
+rect_min_size = Vector2( 256, 60 )
+text = "Options"
+
+[node name="QuitGame" type="Button" parent="MainButtons"]
+margin_top = 150.0
+margin_right = 256.0
+margin_bottom = 210.0
+rect_min_size = Vector2( 256, 60 )
+text = "Quit Game"
+
+[node name="Options" type="VBoxContainer" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -72.5
+margin_right = 128.0
+margin_bottom = 72.5
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsLabel" type="Label" parent="Options"]
+margin_right = 256.0
+margin_bottom = 14.0
+text = "Audio"
+align = 1
+
+[node name="Volume" type="HBoxContainer" parent="Options"]
+margin_top = 18.0
+margin_right = 256.0
+margin_bottom = 42.0
+
+[node name="SliderLabel" type="Label" parent="Options/Volume"]
+margin_top = 5.0
+margin_right = 194.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Master volume: "
+
+[node name="SliderValue" type="LineEdit" parent="Options/Volume"]
+margin_left = 198.0
+margin_right = 256.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 15, 0 )
+align = 2
+max_length = 3
+placeholder_text = "50"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="Options"]
+margin_top = 46.0
+margin_right = 256.0
+margin_bottom = 62.0
+value = 50.0
+
+[node name="MusicVolume" type="HBoxContainer" parent="Options"]
+visible = false
+margin_top = 66.0
+margin_right = 256.0
+margin_bottom = 90.0
+
+[node name="SliderLabel" type="Label" parent="Options/MusicVolume"]
+margin_top = 5.0
+margin_right = 194.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Music volume: "
+
+[node name="MusicSliderValue" type="LineEdit" parent="Options/MusicVolume"]
+margin_left = 198.0
+margin_right = 256.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 15, 0 )
+align = 2
+max_length = 3
+placeholder_text = "100"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Options"]
+visible = false
+margin_top = 66.0
+margin_right = 256.0
+margin_bottom = 82.0
+value = 100.0
+
+[node name="SFXVolume" type="HBoxContainer" parent="Options"]
+visible = false
+margin_top = 114.0
+margin_right = 256.0
+margin_bottom = 138.0
+
+[node name="SliderLabel" type="Label" parent="Options/SFXVolume"]
+margin_top = 5.0
+margin_right = 194.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Effects volume: "
+
+[node name="SFXSliderValue" type="LineEdit" parent="Options/SFXVolume"]
+margin_left = 198.0
+margin_right = 256.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 15, 0 )
+align = 2
+max_length = 3
+placeholder_text = "100"
+
+[node name="SFXVolumeSlider" type="HSlider" parent="Options"]
+visible = false
+margin_top = 46.0
+margin_right = 256.0
+margin_bottom = 62.0
+value = 100.0
+
+[node name="Back" type="Button" parent="Options"]
+margin_left = 107.0
+margin_top = 66.0
+margin_right = 149.0
+margin_bottom = 86.0
+size_flags_horizontal = 4
+text = "Back"
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Tween2" type="Tween" parent="."]
+
+[connection signal="pressed" from="MainButtons/StartGame" to="." method="_on_StartGame_pressed"]
+[connection signal="pressed" from="MainButtons/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="MainButtons/QuitGame" to="." method="_on_QuitGame_pressed"]
+[connection signal="text_entered" from="Options/Volume/SliderValue" to="." method="_on_SliderValue_text_entered"]
+[connection signal="value_changed" from="Options/MasterVolumeSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="text_entered" from="Options/MusicVolume/MusicSliderValue" to="." method="_on_MusicSliderValue_text_entered"]
+[connection signal="changed" from="Options/MusicVolumeSlider" to="." method="_on_MusicVolumeSlider_changed"]
+[connection signal="text_entered" from="Options/SFXVolume/SFXSliderValue" to="." method="_on_SFXSliderValue_text_entered"]
+[connection signal="value_changed" from="Options/SFXVolumeSlider" to="." method="_on_SFXVolumeSlider_value_changed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_Back_pressed"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="tween_completed" from="Tween2" to="." method="_on_Tween2_tween_completed"]

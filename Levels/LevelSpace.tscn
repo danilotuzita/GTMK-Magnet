@@ -12,6 +12,7 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
+next_level = "MainMenu/MainMenu"
 
 [node name="BackBackground" type="ColorRect" parent="."]
 margin_left = -115.913
@@ -50,11 +51,14 @@ __meta__ = {
 [node name="Player1" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1482.63, 147.363 )
 can_fly = true
+magnetic_intensity = Vector2( 25, 5 )
 
 [node name="Player2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 146.047, 780.226 )
+robot = "slim"
 polarity = -1
 can_fly = true
+magnetic_intensity = Vector2( 25, 5 )
 
 [node name="WinConditions" type="Node" parent="."]
 
@@ -68,21 +72,23 @@ rotation = -3.14159
 [node name="Magnets" type="Node" parent="."]
 
 [node name="Magnet" parent="Magnets" instance=ExtResource( 6 )]
-position = Vector2( 695.491, 184.913 )
+position = Vector2( 680, 224 )
 intensity = 4.0
 
 [node name="Magnet3" parent="Magnets" instance=ExtResource( 6 )]
-position = Vector2( 927.625, 187.76 )
+position = Vector2( 920, 216 )
 intensity = 4.0
 
 [node name="Magnet2" parent="Magnets" instance=ExtResource( 6 )]
-position = Vector2( 918.953, 688.147 )
+position = Vector2( 912, 680 )
 polarity = -1
 intensity = 4.0
 start_angle = 180.0
 
 [node name="Magnet4" parent="Magnets" instance=ExtResource( 6 )]
-position = Vector2( 670.028, 682.303 )
+position = Vector2( 664, 680 )
 polarity = -1
 intensity = 4.0
 start_angle = 180.0
+
+[node name="Spikes" type="Node" parent="."]

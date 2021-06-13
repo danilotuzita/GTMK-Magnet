@@ -63,8 +63,8 @@ func set_polarity(new_polarity: int):
 			if hint:
 				hint.modulate = color_positive
 		0:
-			$Sprite/ColorRect.visible = false
-			$Sprite/ColorRect2.visible = false
+			$Sprite/Plus.visible = false
+			$Sprite/Minus.visible = false
 		-1:
 			$Sprite/Plus.visible = false
 			$Sprite/Minus.visible = true

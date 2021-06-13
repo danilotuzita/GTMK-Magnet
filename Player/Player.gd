@@ -26,6 +26,11 @@ export(int, -1, 1, 1) var polarity = 1 setget set_polarity
 export var color_positive = Color("cc4b54")
 export var color_negative = Color("67a9db")
 export var can_fly = false
+export var magnetic_intensity = Vector2(15, 5)
+export var repulsion_vertical = true
+export var repulsion_horizontal = false
+export var instantaneous_polarity = false
+export var gravity = Vector2(0, 0)
 
 signal teleported()
 
@@ -53,10 +58,11 @@ func _physics_process(delta: float):
 	
 	#Magnetic movement
 	var attraction = -1 if polarity == other_player.polarity else 1
-	apply_magnetic_force(other_player.global_position, Vector2(15, attraction) * 5)
-	
+	var multiplier = Vector2(attraction if repulsion_horizontal else 1, attraction if repulsion_vertical else 1)
+	apply_magnetic_force(other_player.global_position, magnetic_intensity * multiplier)
 
 	# Move based on the velocity and snap to the ground.
+	velocity += gravity
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN, Vector2.UP)
 	
 	# Check for jumping. is_on_floor() must be called after movement code.
@@ -82,6 +88,9 @@ func change_polarity():
 	self.polarity *= -1
 	if polarity == 0:
 		return
+	if instantaneous_polarity:
+		velocity *= Vector2(1, -1 / 2)
+		other_player.velocity *= Vector2(1, -1 / 2)
 	var track_num = int(polarity > 0)
 	audio.volume_db = linear2db(Configs.master_audio_volume / 15)
 	audio.stream = audio_tracks[track_num]

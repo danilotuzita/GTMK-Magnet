@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Gtmk-Magnet"
-run/main_scene="res://MainMenu/MainMenu.tscn"
+run/main_scene="res://Levels/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -22,6 +22,7 @@ Configs="*res://Configs.gd"
 
 window/size/width=1650
 window/size/height=930
+window/size/borderless=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
