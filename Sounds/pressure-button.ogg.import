@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pressure-button.ogg-440f1068f565c8ee47e9e7e0656d0a0d.oggstr"
+
+[deps]
+
+source_file="res://Sounds/pressure-button.ogg"
+dest_files=[ "res://.import/pressure-button.ogg-440f1068f565c8ee47e9e7e0656d0a0d.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

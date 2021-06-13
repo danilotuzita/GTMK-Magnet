@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sci-fi_theme.mp3-fb8066003ffe1579ec0b69dd7f6f9cc9.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/sci-fi_theme.mp3"
+dest_files=[ "res://.import/sci-fi_theme.mp3-fb8066003ffe1579ec0b69dd7f6f9cc9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

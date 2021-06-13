@@ -1,31 +1,218 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Player/Player.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/electricity.png" type="Texture" id=2]
+[ext_resource path="res://Player/fat-walk.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/light.png" type="Texture" id=4]
+[ext_resource path="res://Player/fat-positive.png" type="Texture" id=5]
+[ext_resource path="res://Player/fat-negative.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
+radius = 16.6147
+height = 61.7368
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 960, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 1920, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 2880, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 3840, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 4800, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 5760, 0, 960, 1208 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "fat-walk",
+"speed": 12.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "slim-walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 960, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1920, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 2880, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 3840, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 4800, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 5760, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 960, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 1920, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 2880, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 3840, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 4800, 0, 960, 1208 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 5760, 0, 960, 1208 )
+
+[sub_resource type="SpriteFrames" id=24]
+animations = [ {
+"frames": [ SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "fat-positive",
+"speed": 12.0
+}, {
+"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"loop": true,
+"name": "fat-negative",
+"speed": 12.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "slim-negative",
+"speed": 12.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "slim-positive",
+"speed": 12.0
+} ]
 
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 3
-collision_mask = 0
+collision_mask = 2
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -3.30357, 3.30356 )
 shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, 0.0834284 )
-scale = Vector2( 1, 2.34527 )
-texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 0.187286, -0.187286 )
 rotation = 0.00031729
-points = PoolVector2Array( 0, 0, 50, 50 )
-width = 2.0
+points = PoolVector2Array( 0.0588069, -12.3127, 96.3461, 5.25849 )
+width = 25.0
+default_color = Color( 1, 1, 1, 1 )
+texture = ExtResource( 2 )
+texture_mode = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 9 )
+animation = "fat-walk"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 24 )
+animation = "slim-positive"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Line2D2" type="Line2D" parent="."]
+visible = false
 points = PoolVector2Array( 0, 0, 0, 0 )
 width = 2.0
 default_color = Color( 1, 0.4, 0.4, 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="AudioSteps" type="AudioStreamPlayer" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( -10.1184, -35.2674 )
+scale = Vector2( 0.105384, 0.103376 )
+texture = ExtResource( 4 )
+color = Color( 0.992157, 1, 0, 1 )
+energy = 1.2
+
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]

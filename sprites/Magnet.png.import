@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Magnet.png-c30b1a106385d59e0804eaca00c51537.stex"
+path="res://.import/Magnet.png-70e4b2bf19cf14a741eef194f834588e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Magnet.png"
-dest_files=[ "res://.import/Magnet.png-c30b1a106385d59e0804eaca00c51537.stex" ]
+source_file="res://Sprites/Magnet.png"
+dest_files=[ "res://.import/Magnet.png-70e4b2bf19cf14a741eef194f834588e.stex" ]
 
 [params]
 

@@ -14,12 +14,16 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -20.1562
-margin_top = -80.8121
-margin_right = 35.8438
-margin_bottom = 239.188
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -540.0
+margin_top = -460.0
+margin_right = 540.0
+margin_bottom = 460.0
+size_flags_horizontal = 5
+size_flags_vertical = 5
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true,
@@ -27,13 +31,13 @@ __meta__ = {
 }
 
 [node name="LightBlue" type="Light2D" parent="."]
-position = Vector2( 226.399, 183.476 )
+position = Vector2( 538.443, 244.089 )
 rotation = 0.261799
 scale = Vector2( 0.817683, 1.40575 )
 texture = ExtResource( 4 )
 
 [node name="LightRed" type="Light2D" parent="."]
-position = Vector2( 824.819, 313.737 )
+position = Vector2( 1105.43, 358.635 )
 rotation = -0.785397
 scale = Vector2( 0.82217, 1.65191 )
 texture = ExtResource( 4 )
@@ -135,6 +139,64 @@ margin_right = 256.0
 margin_bottom = 62.0
 value = 50.0
 
+[node name="MusicVolume" type="HBoxContainer" parent="Options"]
+visible = false
+margin_top = 66.0
+margin_right = 256.0
+margin_bottom = 90.0
+
+[node name="SliderLabel" type="Label" parent="Options/MusicVolume"]
+margin_top = 5.0
+margin_right = 194.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Music volume: "
+
+[node name="MusicSliderValue" type="LineEdit" parent="Options/MusicVolume"]
+margin_left = 198.0
+margin_right = 256.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 15, 0 )
+align = 2
+max_length = 3
+placeholder_text = "100"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Options"]
+visible = false
+margin_top = 66.0
+margin_right = 256.0
+margin_bottom = 82.0
+value = 100.0
+
+[node name="SFXVolume" type="HBoxContainer" parent="Options"]
+visible = false
+margin_top = 114.0
+margin_right = 256.0
+margin_bottom = 138.0
+
+[node name="SliderLabel" type="Label" parent="Options/SFXVolume"]
+margin_top = 5.0
+margin_right = 194.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "Effects volume: "
+
+[node name="SFXSliderValue" type="LineEdit" parent="Options/SFXVolume"]
+margin_left = 198.0
+margin_right = 256.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 15, 0 )
+align = 2
+max_length = 3
+placeholder_text = "100"
+
+[node name="SFXVolumeSlider" type="HSlider" parent="Options"]
+visible = false
+margin_top = 46.0
+margin_right = 256.0
+margin_bottom = 62.0
+value = 100.0
+
 [node name="Back" type="Button" parent="Options"]
 margin_left = 107.0
 margin_top = 66.0
@@ -152,6 +214,10 @@ text = "Back"
 [connection signal="pressed" from="MainButtons/QuitGame" to="." method="_on_QuitGame_pressed"]
 [connection signal="text_entered" from="Options/Volume/SliderValue" to="." method="_on_SliderValue_text_entered"]
 [connection signal="value_changed" from="Options/MasterVolumeSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="text_entered" from="Options/MusicVolume/MusicSliderValue" to="." method="_on_MusicSliderValue_text_entered"]
+[connection signal="changed" from="Options/MusicVolumeSlider" to="." method="_on_MusicVolumeSlider_changed"]
+[connection signal="text_entered" from="Options/SFXVolume/SFXSliderValue" to="." method="_on_SFXSliderValue_text_entered"]
+[connection signal="value_changed" from="Options/SFXVolumeSlider" to="." method="_on_SFXVolumeSlider_value_changed"]
 [connection signal="pressed" from="Options/Back" to="." method="_on_Back_pressed"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="tween_completed" from="Tween2" to="." method="_on_Tween2_tween_completed"]
